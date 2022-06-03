@@ -37,5 +37,13 @@ set_veth_netns se_ro server 12.0.0.2/24
 ip -n client route add default dev cl_ro via 11.0.0.1
 ip -n server route add default dev se_ro via 12.0.0.1
 
+netex client sysctl -w net/ipv6/conf/all/disable_ipv6=1
+netex server sysctl -w net/ipv6/conf/all/disable_ipv6=1
+netex router sysctl -w net/ipv6/conf/all/disable_ipv6=1
+
+
 netex client wireshark -i cl_ro -k & &> /dev/null
 netex server wireshark -i se_ro -k & &> /dev/null
+netex router wireshark -i ro_se -k & &> /dev/null
+
+echo ""

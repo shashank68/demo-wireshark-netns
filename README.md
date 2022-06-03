@@ -21,6 +21,12 @@ sudo ./setup_topology.sh
 - This will setup the topology and start 2 wireshark instances in client and server respectively
 
 
+Ping from client to server:
+
+```bash
+sudo ./ping_client_to_server.sh
+```
+
 To destroy the created nodes, run:
 
 ```bash
